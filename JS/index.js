@@ -53,6 +53,9 @@ const displayPhoneDetail = phone => {
          <p>Chipset: ${phone.mainFeatures.chipSet}</p>
          <p>Memory: ${phone.mainFeatures.memory}</p>
   
-     
+        <p class="fw-bold">Sensore: ${phone.mainFeatures.sensore || "No sensore available"}</p>
+       
+    </div>   
+</div>`;
 phoneDetail.appendChild(div);
 }
