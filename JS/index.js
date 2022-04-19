@@ -37,7 +37,7 @@ const searchPhones = () => {
     // clear search Result
           searchResult ='';
 
-// phone details
+// fetch phone details data
 const loadDetail = phoneSlug => {
   const url = `https://openapi.programming-hero.com/api/phone/${phoneSlug}
   `
@@ -46,7 +46,7 @@ const loadDetail = phoneSlug => {
   .then(res => res.json())
   .then(data => displayPhoneDetail(data.data))
 };
-
+// display details information
 const displayPhoneDetail = phone => {
   const phoneDetail = document.getElementById('phone-details');
   const div = document.createElement('div');
@@ -57,14 +57,22 @@ const displayPhoneDetail = phone => {
   <div class="card-body">
      <p> releaseDate : ${phone.releaseDate ||"No release date found"}</p>
      <h4 class="card-p card-text">Brand: ${phone.brand}</h4>
-     <h3 class="card-title card-p">Model: ${phone.phone_name}</h3> 
+     <h3 class="card-title card-p">Model: ${phone.name}</h3> 
      <h5 class="fw-bold">Main Features: </h5>
          <p>Storage: ${phone.mainFeatures.storage}</p>
          <p>Display: ${phone.mainFeatures.displaySize}</p>
          <p>Chipset: ${phone.mainFeatures.chipSet}</p>
          <p>Memory: ${phone.mainFeatures.memory}</p>
-  
-        <p class="fw-bold">Sensore: ${phone.mainFeatures.sensore || "No sensore available"}</p>
+         <div>
+         <h5 class="fw-bold">Sensore:
+             <p class = "text-primary">${phone.mainFeatures.sensors[0] || "No sensore available"}</p>
+             <p class = "text-primary">${phone.mainFeatures.sensors[1] || "No sensore available"}</p>
+             <p class = "text-primary">${phone.mainFeatures.sensors[2] || "No sensore available"}</p>
+             <p class = "text-primary">${phone.mainFeatures.sensors[3] || "No sensore available"}</p>
+             <p class = "text-primary">${phone.mainFeatures.sensors[4] || "No sensore available"}</p>
+             <p class = "text-primary">${phone.mainFeatures.sensors[5] || "No sensore available"}</p>
+          </h5>        
+         </div>
         <div>
         <h5 class="fw-bold">Others: </h5>
         <p>Bluetooth: ${phone.others?.Bluetooth || "No Bluetooth available"}</p>
@@ -76,4 +84,4 @@ const displayPhoneDetail = phone => {
     </div>   
 </div>`;
 phoneDetail.appendChild(div);
-}
+};
