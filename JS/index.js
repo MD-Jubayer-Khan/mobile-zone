@@ -54,7 +54,14 @@ const displayPhoneDetail = phone => {
          <p>Memory: ${phone.mainFeatures.memory}</p>
   
         <p class="fw-bold">Sensore: ${phone.mainFeatures.sensore || "No sensore available"}</p>
-       
+        <div>
+        <h5 class="fw-bold">Others: </h5>
+        <p>Bluetooth: ${phone.others?.Bluetooth || "No Bluetooth available"}</p>
+        <p>WLAN: ${phone.others?.WLAN || "No WLAN available"}</p> 
+        <p>GPS: ${phone.others?.GPS || "No GPS available"}</p> 
+        <p>NFC: ${phone.others?.NFC || "No NFC available"}</p> 
+        <p>Radio: ${phone.others?.Radio || "No Radio fetures available"}</p> 
+        </div>
     </div>   
 </div>`;
 phoneDetail.appendChild(div);
