@@ -12,6 +12,9 @@ const searchPhones = () => {
     };
     const displaySearchResult = phones => {
         const searchResult = document.getElementById('search-result');
+        if (phones.length == 0){
+          alert('Please enter a phone name')
+        };
         // clear search result innerHTML
           searchResult.innerHTML= '';
         phones.forEach(phone => {
