@@ -1,7 +1,10 @@
+// button onclick function
 const searchPhones = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+    // clear input field
     searchField.value = '';
+    // fetch api
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res => res.json())
@@ -9,6 +12,8 @@ const searchPhones = () => {
     };
     const displaySearchResult = phones => {
         const searchResult = document.getElementById('search-result');
+        // clear search result innerHTML
+          searchResult.innerHTML= '';
         phones.forEach(phone => {
             const div = document.createElement('div');
             div.classList.add('col');
@@ -23,10 +28,13 @@ const searchPhones = () => {
          </div>
         `;
           searchResult.appendChild(div);
-           
+          
         })
     };
+    // clear search Result
+          searchResult ='';
 
+// phone details
 const loadDetail = phoneSlug => {
   const url = `https://openapi.programming-hero.com/api/phone/${phoneSlug}
   `
@@ -42,12 +50,12 @@ const displayPhoneDetail = phone => {
   div.classList.add('col');
   div.innerHTML =`
   <div class="card h-100">
-  <img src="${phone.image}" class="card-img-top" alt="...">
+    <img src="${phone.image}" class="card-img-top" alt="...">
   <div class="card-body">
-  <p> releaseDate : ${phone.releaseDate ||"No release date found"}</p>
-  <h4 class="card-p card-text">Brand: ${phone.brand}</h4>
-  <h3 class="card-title card-p">Model: ${phone.phone_name}</h3> 
-  <h5 class="fw-bold">Main Features: </h5>
+     <p> releaseDate : ${phone.releaseDate ||"No release date found"}</p>
+     <h4 class="card-p card-text">Brand: ${phone.brand}</h4>
+     <h3 class="card-title card-p">Model: ${phone.phone_name}</h3> 
+     <h5 class="fw-bold">Main Features: </h5>
          <p>Storage: ${phone.mainFeatures.storage}</p>
          <p>Display: ${phone.mainFeatures.displaySize}</p>
          <p>Chipset: ${phone.mainFeatures.chipSet}</p>
