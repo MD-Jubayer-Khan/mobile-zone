@@ -79,7 +79,7 @@ const displayPhoneDetail = phone => {
         <p>WLAN: ${phone.others?.WLAN || "No WLAN available"}</p> 
         <p>GPS: ${phone.others?.GPS || "No GPS available"}</p> 
         <p>NFC: ${phone.others?.NFC || "No NFC available"}</p> 
-        <p>Radio: ${phone.others?.Radio || "No Radio fetures available"}</p> 
+        <p>Radio: ${phone.others?.Radio || "No Radio features available"}</p> 
         </div>
     </div>   
 </div>`;
