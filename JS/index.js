@@ -22,7 +22,7 @@ const searchPhones = () => {
             div.classList.add('col');
             div.innerHTML =`
             <div class="card h-100">
-         <img  src="${phone.image}" class="card-img-top" alt="">
+         <img  src="${phone.image}" class="card-img-top" alt="phone images">
          <div class="card-body text-bg">
          <h4 class="card-p card-text">Brand: ${phone.brand}</h4>
           <h3 class="card-title card-p">Model: ${phone.phone_name}</h3>   
